@@ -1,0 +1,445 @@
+/*==========================================================
+  AGROLINK DATABASE
+  SQL SERVER 2022
+==========================================================*/
+
+CREATE DATABASE AgroLinkDB;
+GO
+
+USE AgroLinkDB;
+GO
+
+/*==========================================================
+  CATEGORIAS
+==========================================================*/
+
+CREATE TABLE Categorias
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Descripcion VARCHAR(300),
+    Estado BIT DEFAULT 1
+);
+GO
+
+/*==========================================================
+  PROVEEDORES
+==========================================================*/
+
+CREATE TABLE Proveedores
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    NombreEmpresa VARCHAR(150) NOT NULL,
+    Ruc VARCHAR(50),
+    Telefono VARCHAR(50),
+    Correo VARCHAR(150),
+    Direccion VARCHAR(250),
+    Departamento VARCHAR(100),
+    Municipio VARCHAR(100),
+    FechaRegistro DATETIME DEFAULT GETDATE(),
+    Estado BIT DEFAULT 1
+);
+GO
+
+/*==========================================================
+  PRODUCTORES
+==========================================================*/
+
+CREATE TABLE Productores
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    NombreCompleto VARCHAR(150) NOT NULL,
+    Cedula VARCHAR(50),
+    Telefono VARCHAR(50),
+    Correo VARCHAR(150),
+    Direccion VARCHAR(250),
+    Departamento VARCHAR(100),
+    Municipio VARCHAR(100),
+    FechaRegistro DATETIME DEFAULT GETDATE(),
+    Estado BIT DEFAULT 1
+);
+GO
+
+/*==========================================================
+  PRODUCTOS
+==========================================================*/
+
+CREATE TABLE Productos
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    Nombre VARCHAR(150) NOT NULL,
+
+    Descripcion VARCHAR(MAX),
+
+    Precio DECIMAL(18,2) NOT NULL,
+
+    Stock INT NOT NULL DEFAULT 0,
+
+    Imagen VARCHAR(500),
+
+    CategoriaId INT NOT NULL,
+
+    ProveedorId INT NOT NULL,
+
+    FechaRegistro DATETIME DEFAULT GETDATE(),
+
+    Estado BIT DEFAULT 1,
+
+    CONSTRAINT FK_Productos_Categorias
+        FOREIGN KEY(CategoriaId)
+        REFERENCES Categorias(Id),
+
+    CONSTRAINT FK_Productos_Proveedores
+        FOREIGN KEY(ProveedorId)
+        REFERENCES Proveedores(Id)
+);
+GO
+
+/*==========================================================
+  SOLICITUDES
+==========================================================*/
+
+CREATE TABLE Solicitudes
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    ProductorId INT NOT NULL,
+
+    FechaSolicitud DATETIME DEFAULT GETDATE(),
+
+    Estado VARCHAR(50) DEFAULT 'Pendiente',
+
+    Observaciones VARCHAR(MAX),
+
+    CONSTRAINT FK_Solicitudes_Productores
+        FOREIGN KEY(ProductorId)
+        REFERENCES Productores(Id)
+);
+GO
+
+/*==========================================================
+  DETALLE SOLICITUDES
+==========================================================*/
+
+CREATE TABLE DetalleSolicitudes
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    SolicitudId INT NOT NULL,
+
+    ProductoId INT NOT NULL,
+
+    Cantidad INT NOT NULL,
+
+    CONSTRAINT FK_DetalleSolicitudes_Solicitudes
+        FOREIGN KEY(SolicitudId)
+        REFERENCES Solicitudes(Id),
+
+    CONSTRAINT FK_DetalleSolicitudes_Productos
+        FOREIGN KEY(ProductoId)
+        REFERENCES Productos(Id)
+);
+GO
+
+/*==========================================================
+  COMPRAS
+==========================================================*/
+
+CREATE TABLE Compras
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    ProductorId INT NOT NULL,
+
+    FechaCompra DATETIME DEFAULT GETDATE(),
+
+    Total DECIMAL(18,2) DEFAULT 0,
+
+    Estado VARCHAR(50) DEFAULT 'Pendiente',
+
+    CONSTRAINT FK_Compras_Productores
+        FOREIGN KEY(ProductorId)
+        REFERENCES Productores(Id)
+);
+GO
+
+/*==========================================================
+  DETALLE COMPRAS
+==========================================================*/
+
+CREATE TABLE DetalleCompras
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    CompraId INT NOT NULL,
+
+    ProductoId INT NOT NULL,
+
+    Cantidad INT NOT NULL,
+
+    PrecioUnitario DECIMAL(18,2),
+
+    Subtotal DECIMAL(18,2),
+
+    CONSTRAINT FK_DetalleCompras_Compras
+        FOREIGN KEY(CompraId)
+        REFERENCES Compras(Id),
+
+    CONSTRAINT FK_DetalleCompras_Productos
+        FOREIGN KEY(ProductoId)
+        REFERENCES Productos(Id)
+);
+GO
+
+/*==========================================================
+  FACTURAS
+==========================================================*/
+
+CREATE TABLE Facturas
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    CompraId INT NOT NULL,
+
+    NumeroFactura VARCHAR(50),
+
+    FechaEmision DATETIME DEFAULT GETDATE(),
+
+    Subtotal DECIMAL(18,2),
+
+    IVA DECIMAL(18,2),
+
+    Total DECIMAL(18,2),
+
+    CONSTRAINT FK_Facturas_Compras
+        FOREIGN KEY(CompraId)
+        REFERENCES Compras(Id)
+);
+GO
+
+/*==========================================================
+  MENSAJES
+==========================================================*/
+
+CREATE TABLE Mensajes
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    RemitenteId VARCHAR(450),
+
+    DestinatarioId VARCHAR(450),
+
+    Mensaje VARCHAR(MAX),
+
+    Fecha DATETIME DEFAULT GETDATE()
+);
+GO
+
+/*==========================================================
+  NOTIFICACIONES
+==========================================================*/
+
+CREATE TABLE Notificaciones
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    UsuarioId VARCHAR(450),
+
+    Titulo VARCHAR(200),
+
+    Mensaje VARCHAR(MAX),
+
+    Fecha DATETIME DEFAULT GETDATE(),
+
+    Leida BIT DEFAULT 0
+);
+GO
+
+/*==========================================================
+  AUDITORIA
+==========================================================*/
+
+CREATE TABLE Auditoria
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    UsuarioId VARCHAR(450),
+
+    Accion VARCHAR(150),
+
+    Tabla VARCHAR(150),
+
+    Fecha DATETIME DEFAULT GETDATE(),
+
+    Descripcion VARCHAR(MAX)
+);
+GO
+
+/*==========================================================
+  CONFIGURACION SISTEMA
+==========================================================*/
+
+CREATE TABLE ConfiguracionSistema
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    NombreEmpresa VARCHAR(150),
+
+    Correo VARCHAR(150),
+
+    Telefono VARCHAR(50),
+
+    Direccion VARCHAR(250)
+);
+GO
+
+/*==========================================================
+  HISTORIAL ACCESOS
+==========================================================*/
+
+CREATE TABLE HistorialAccesos
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    UsuarioId VARCHAR(450),
+
+    FechaIngreso DATETIME,
+
+    IpAddress VARCHAR(100)
+);
+GO
+
+/*==========================================================
+  INDICES
+==========================================================*/
+
+CREATE INDEX IX_Productos_Nombre
+ON Productos(Nombre);
+
+CREATE INDEX IX_Productos_Categoria
+ON Productos(CategoriaId);
+
+CREATE INDEX IX_Compras_Fecha
+ON Compras(FechaCompra);
+
+CREATE INDEX IX_Solicitudes_Fecha
+ON Solicitudes(FechaSolicitud);
+GO
+
+/*==========================================================
+  VISTAS
+==========================================================*/
+
+CREATE VIEW VW_Productos
+AS
+SELECT
+    P.Id,
+    P.Nombre,
+    P.Precio,
+    P.Stock,
+    C.Nombre Categoria,
+    PR.NombreEmpresa Proveedor
+FROM Productos P
+INNER JOIN Categorias C
+    ON P.CategoriaId = C.Id
+INNER JOIN Proveedores PR
+    ON P.ProveedorId = PR.Id;
+GO
+
+CREATE VIEW VW_Compras
+AS
+SELECT
+    C.Id,
+    P.NombreCompleto,
+    C.FechaCompra,
+    C.Total,
+    C.Estado
+FROM Compras C
+INNER JOIN Productores P
+    ON C.ProductorId = P.Id;
+GO
+
+/*==========================================================
+  PROCEDIMIENTOS ALMACENADOS
+==========================================================*/
+
+CREATE PROCEDURE SP_ListarProductos
+AS
+BEGIN
+    SELECT * FROM VW_Productos;
+END;
+GO
+
+CREATE PROCEDURE SP_RegistrarProducto
+(
+    @Nombre VARCHAR(150),
+    @Descripcion VARCHAR(MAX),
+    @Precio DECIMAL(18,2),
+    @Stock INT,
+    @CategoriaId INT,
+    @ProveedorId INT
+)
+AS
+BEGIN
+    INSERT INTO Productos
+    (
+        Nombre,
+        Descripcion,
+        Precio,
+        Stock,
+        CategoriaId,
+        ProveedorId
+    )
+    VALUES
+    (
+        @Nombre,
+        @Descripcion,
+        @Precio,
+        @Stock,
+        @CategoriaId,
+        @ProveedorId
+    );
+END;
+GO
+
+CREATE PROCEDURE SP_ActualizarInventario
+(
+    @ProductoId INT,
+    @Cantidad INT
+)
+AS
+BEGIN
+    UPDATE Productos
+    SET Stock = Stock - @Cantidad
+    WHERE Id = @ProductoId;
+END;
+GO
+
+/*==========================================================
+  DATOS INICIALES
+==========================================================*/
+
+INSERT INTO Categorias(Nombre)
+VALUES
+('Semillas'),
+('Fertilizantes'),
+('Herramientas'),
+('Riego'),
+('Veterinaria');
+
+INSERT INTO ConfiguracionSistema
+(
+    NombreEmpresa,
+    Correo,
+    Telefono,
+    Direccion
+)
+VALUES
+(
+    'AgroLink',
+    'admin@agrolink.com',
+    '0000-0000',
+    'Nicaragua'
+);
+GO
