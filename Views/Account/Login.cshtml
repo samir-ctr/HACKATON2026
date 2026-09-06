@@ -1,0 +1,296 @@
+﻿@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<div class="auth-page">
+
+    <div class="auth-container">
+
+        <!-- ================================= -->
+        <!-- LADO IZQUIERDO -->
+        <!-- ================================= -->
+
+        <div class="auth-brand">
+
+            <img src="~/images/logo.png"
+                 alt="Entre Manos"
+                 class="auth-logo" />
+
+            <h1>
+                Bienvenida a
+                <br />
+                <span>Entre Manos</span>
+            </h1>
+
+            <p>
+                Un espacio para conectar con lo artesanal,
+                lo auténtico y lo hecho con amor.
+            </p>
+
+            <strong>
+                Gracias por ser parte de nuestra comunidad.
+            </strong>
+
+            <div class="auth-decoration">
+                ✦
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- FORMULARIO -->
+        <!-- ================================= -->
+
+        <div class="auth-card">
+
+            <div class="auth-tabs">
+
+                <button class="auth-tab active">
+                    Iniciar sesión
+                </button>
+
+                <a asp-controller="Account"
+                   asp-action="Register"
+                   class="auth-tab">
+                    Crear cuenta
+                </a>
+
+            </div>
+
+
+            @if (TempData["Mensaje"] != null)
+            {
+                <div class="success-message">
+                    @TempData["Mensaje"]
+                </div>
+            }
+
+
+            <div class="auth-title">
+
+                <h2>
+                    ¡Qué bueno verte!
+                </h2>
+
+                <p>
+                    Inicia sesión para continuar.
+                </p>
+
+            </div>
+
+
+            <form method="post"
+                  asp-controller="Account"
+                  asp-action="Login">
+
+
+                <!-- NOMBRE / TELÉFONO -->
+
+                <div class="form-group">
+
+                    <label>
+                        Nombre o número telefónico
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            ☎
+                        </span>
+
+                        <input type="text"
+                               name="usuario"
+                               placeholder="Nombre o número telefónico"
+                               required />
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+
+                <div class="form-group">
+
+                    <div class="label-row">
+
+                        <label>
+                            Contraseña
+                        </label>
+
+                        <a href="#"
+                           class="forgot-password">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+
+                    </div>
+
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               placeholder="Ingresa tu contraseña"
+                               required />
+
+                        <button type="button"
+                                class="password-toggle"
+                                onclick="togglePassword()">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECORDAR -->
+
+                <div class="remember-row">
+
+                    <label class="remember">
+
+                        <input type="checkbox"
+                               name="recordarme" />
+
+                        <span>
+                            Recordarme
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- BOTÓN -->
+
+                <button type="submit"
+                        class="auth-submit">
+
+                    Iniciar sesión
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- ================================= -->
+            <!-- LOGIN SOCIAL -->
+            <!-- ================================= -->
+
+            <div class="social-section">
+
+                <div class="social-divider">
+
+                    <span></span>
+
+                    <p>
+                        O inicia sesión rápidamente con
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="social-buttons">
+
+
+                    <!-- GOOGLE -->
+
+                    <button type="button"
+                            class="social-button google">
+
+                        <span class="google-icon">
+                            G
+                        </span>
+
+                        <span>
+                            Google
+                        </span>
+
+                    </button>
+
+
+                    <!-- FACEBOOK -->
+
+                    <button type="button"
+                            class="social-button facebook">
+
+                        <span class="facebook-icon">
+                            f
+                        </span>
+
+                        <span>
+                            Facebook
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <p class="social-info">
+
+                    Solo podrás utilizar estas opciones si
+                    ya tienes una cuenta vinculada.
+
+                </p>
+
+            </div>
+
+
+            <!-- REGISTRO -->
+
+            <div class="register-question">
+
+                ¿Aún no tienes cuenta?
+
+                <a asp-controller="Account"
+                   asp-action="Register">
+
+                    Crear cuenta
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function togglePassword() {
+
+        const password =
+            document.getElementById("password");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+        } else {
+
+            password.type = "password";
+
+        }
+
+    }
+
+</script>

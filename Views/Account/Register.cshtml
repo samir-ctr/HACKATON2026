@@ -1,0 +1,442 @@
+﻿@{
+    ViewData["Title"] = "Crear cuenta";
+}
+
+<div class="auth-page">
+
+    <div class="register-container">
+
+
+        <!-- ================================= -->
+        <!-- ENCABEZADO -->
+        <!-- ================================= -->
+
+        <div class="register-header">
+
+            <a asp-controller="Home"
+               asp-action="Index">
+
+                <img src="~/images/logo.png"
+                     alt="Entre Manos"
+                     class="register-logo" />
+
+            </a>
+
+            <h1>
+                Crea tu cuenta
+            </h1>
+
+            <p>
+                Forma parte de la comunidad Entre Manos.
+            </p>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- TARJETA -->
+        <!-- ================================= -->
+
+        <div class="register-card">
+
+
+            <div class="register-tabs">
+
+                <div class="register-tab-title">
+                    ¿Qué tipo de cuenta deseas crear?
+                </div>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- TIPO DE USUARIO -->
+            <!-- ================================= -->
+
+            <div class="user-type-container">
+
+
+                <label class="user-type">
+
+                    <input type="radio"
+                           name="tipoUsuario"
+                           value="Artesano"
+                           checked
+                           form="registerForm" />
+
+                    <div class="user-type-content">
+
+                        <div class="user-type-icon">
+                            ✋
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Artesano
+                            </h3>
+
+                            <p>
+                                Creo y elaboro productos artesanales.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+                <label class="user-type">
+
+                    <input type="radio"
+                           name="tipoUsuario"
+                           value="Proveedor"
+                           form="registerForm" />
+
+                    <div class="user-type-content">
+
+                        <div class="user-type-icon provider">
+                            📦
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Proveedor
+                            </h3>
+
+                            <p>
+                                Ofrezco materiales e insumos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+            </div>
+
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="error-message">
+                    @ViewBag.Error
+                </div>
+            }
+
+
+            <!-- ================================= -->
+            <!-- FORMULARIO -->
+            <!-- ================================= -->
+
+            <form id="registerForm"
+                  method="post"
+                  asp-controller="Account"
+                  asp-action="Register">
+
+
+                <!-- NOMBRE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Nombre
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            ♙
+                        </span>
+
+                        <input type="text"
+                               name="nombre"
+                               placeholder="Escribe tu nombre"
+                               required />
+
+                    </div>
+
+                </div>
+
+
+                <!-- TELÉFONO -->
+
+                <div class="form-group">
+
+                    <label>
+                        Número telefónico
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            ☎
+                        </span>
+
+                        <input type="tel"
+                               name="telefono"
+                               placeholder="Ej. 8888-8888"
+                               required />
+
+                    </div>
+
+                </div>
+
+
+                <!-- REGIÓN -->
+
+                <div class="form-group">
+
+                    <label>
+                        Región donde te ubicas
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            📍
+                        </span>
+
+                        <select name="region"
+                                required>
+
+                            <option value="">
+                                Selecciona tu región
+                            </option>
+
+                            <option value="Managua">
+                                Managua
+                            </option>
+
+                            <option value="Masaya">
+                                Masaya
+                            </option>
+
+                            <option value="Granada">
+                                Granada
+                            </option>
+
+                            <option value="Carazo">
+                                Carazo
+                            </option>
+
+                            <option value="Rivas">
+                                Rivas
+                            </option>
+
+                            <option value="Leon">
+                                León
+                            </option>
+
+                            <option value="Chinandega">
+                                Chinandega
+                            </option>
+
+                            <option value="Matagalpa">
+                                Matagalpa
+                            </option>
+
+                            <option value="Jinotega">
+                                Jinotega
+                            </option>
+
+                            <option value="Esteli">
+                                Estelí
+                            </option>
+
+                            <option value="Nueva Segovia">
+                                Nueva Segovia
+                            </option>
+
+                            <option value="Madriz">
+                                Madriz
+                            </option>
+
+                            <option value="Boaco">
+                                Boaco
+                            </option>
+
+                            <option value="Chontales">
+                                Chontales
+                            </option>
+
+                            <option value="Rio San Juan">
+                                Río San Juan
+                            </option>
+
+                            <option value="RAAN">
+                                Costa Caribe Norte
+                            </option>
+
+                            <option value="RAAS">
+                                Costa Caribe Sur
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+
+                <div class="form-group">
+
+                    <label>
+                        Contraseña
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input type="password"
+                               id="registerPassword"
+                               name="password"
+                               placeholder="Crea una contraseña"
+                               required />
+
+                        <button type="button"
+                                class="password-toggle"
+                                onclick="toggleRegisterPassword()">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRMAR -->
+
+                <div class="form-group">
+
+                    <label>
+                        Confirmar contraseña
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input type="password"
+                               id="confirmPassword"
+                               name="confirmarPassword"
+                               placeholder="Repite tu contraseña"
+                               required />
+
+                    </div>
+
+                </div>
+
+
+                <!-- TÉRMINOS -->
+
+                <label class="terms">
+
+                    <input type="checkbox"
+                           required />
+
+                    <span>
+
+                        Acepto los
+                        <a href="#">
+                            términos y condiciones
+                        </a>
+                        de Entre Manos.
+
+                    </span>
+
+                </label>
+
+
+                <!-- BOTÓN -->
+
+                <button type="submit"
+                        class="auth-submit register-submit">
+
+                    Crear mi cuenta
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="register-question">
+
+                ¿Ya tienes una cuenta?
+
+                <a asp-controller="Account"
+                   asp-action="Login">
+
+                    Iniciar sesión
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function toggleRegisterPassword() {
+
+        const password =
+            document.getElementById("registerPassword");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+        } else {
+
+            password.type = "password";
+
+        }
+
+    }
+
+
+    document
+        .getElementById("registerForm")
+        .addEventListener("submit", function(event) {
+
+            const password =
+                document.getElementById("registerPassword").value;
+
+            const confirm =
+                document.getElementById("confirmPassword").value;
+
+            if (password !== confirm) {
+
+                event.preventDefault();
+
+                alert("Las contraseñas no coinciden.");
+
+            }
+
+        });
+
+</script>

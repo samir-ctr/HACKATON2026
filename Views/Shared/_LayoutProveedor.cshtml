@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/proveedor.css" />
+
+</head>
+
+<body>
+
+    <div class="proveedor-container">
+
+        <aside class="sidebar">
+
+            <div class="logo-box">
+
+                <img src="~/images/logo.png">
+
+                <h2>Proveedor</h2>
+
+            </div>
+
+            <nav>
+
+                <a asp-controller="Proveedor"
+                   asp-action="Dashboard">
+
+                    Dashboard
+                </a>
+
+                <a asp-controller="Proveedor"
+                   asp-action="Productos">
+
+                    Mis Productos
+                </a>
+
+                <a asp-controller="Proveedor"
+                   asp-action="Publicar">
+
+                    Publicar
+                </a>
+
+                <a asp-controller="Proveedor"
+                   asp-action="Perfil">
+
+                    Perfil
+                </a>
+
+                <a asp-controller="Proveedor"
+                   asp-action="Ajustes">
+
+                    Ajustes
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <main class="content">
+
+            @RenderBody()
+
+        </main>
+
+    </div>
+
+</body>
+</html> 

@@ -1,0 +1,575 @@
+﻿@{
+    ViewData["Title"] = "Inicio - Artesano";
+}
+
+<div class="artisan-page">
+
+    <!-- ==========================================
+         BARRA SUPERIOR
+    =========================================== -->
+
+    <header class="artisan-navbar">
+
+        <div class="artisan-navbar-container">
+
+
+            <!-- LOGO -->
+
+            <a asp-controller="Artesano"
+               asp-action="Index"
+               class="artisan-logo">
+
+                <img src="~/images/logo.jpg"
+                     alt="Entre Manos">
+
+            </a>
+
+
+            <!-- BUSCADOR -->
+
+            <div class="artisan-search">
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input type="text"
+                       id="searchProducts"
+                       placeholder="Buscar productos, materiales..." />
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="artisan-actions">
+
+
+                <!-- AJUSTES -->
+
+                <a asp-controller="Artesano"
+                   asp-action="Ajustes"
+                   class="artisan-action"
+                   title="Ajustes">
+
+                    <span>
+                        ⚙️
+                    </span>
+
+                </a>
+
+
+                <!-- PERFIL -->
+
+                <a asp-controller="Artesano"
+                   asp-action="Perfil"
+                   class="artisan-action profile-action"
+                   title="Mi perfil">
+
+                    <span>
+                        👤
+                    </span>
+
+                </a>
+
+
+                <!-- CARRITO -->
+
+                <a asp-controller="Artesano"
+                   asp-action="Carrito"
+                   class="artisan-action cart-action"
+                   title="Carrito">
+
+                    <span>
+                        🛒
+                    </span>
+
+                    <small id="cartCount">
+                        0
+                    </small>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==========================================
+         BIENVENIDA
+    =========================================== -->
+
+    <section class="artisan-welcome">
+
+        <div>
+
+            <span class="artisan-subtitle">
+                ENTRE MANOS
+            </span>
+
+            <h1>
+                ¡Bienvenido, Artesano!
+            </h1>
+
+            <p>
+                Encuentra todo lo que necesitas para
+                convertir tus ideas en creaciones únicas.
+            </p>
+
+        </div>
+
+
+        <div class="welcome-decoration">
+
+            <span>✦</span>
+            <span>✋</span>
+            <span>✦</span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CATEGORÍAS
+    =========================================== -->
+
+    <section class="artisan-categories">
+
+        <div class="artisan-section-header">
+
+            <div>
+
+                <span>
+                    EXPLORA
+                </span>
+
+                <h2>
+                    Categorías
+                </h2>
+
+            </div>
+
+            <a href="#catalogo">
+                Ver todo →
+            </a>
+
+        </div>
+
+
+        <div class="categories-grid">
+
+
+            <button class="category-card">
+
+                <div class="category-icon">
+                    🧶
+                </div>
+
+                <h3>
+                    Textiles
+                </h3>
+
+                <p>
+                    Hilos, telas y fibras
+                </p>
+
+            </button>
+
+
+            <button class="category-card">
+
+                <div class="category-icon">
+                    🪵
+                </div>
+
+                <h3>
+                    Madera
+                </h3>
+
+                <p>
+                    Madera y herramientas
+                </p>
+
+            </button>
+
+
+            <button class="category-card">
+
+                <div class="category-icon">
+                    🏺
+                </div>
+
+                <h3>
+                    Cerámica
+                </h3>
+
+                <p>
+                    Arcilla y materiales
+                </p>
+
+            </button>
+
+
+            <button class="category-card">
+
+                <div class="category-icon">
+                    💎
+                </div>
+
+                <h3>
+                    Bisutería
+                </h3>
+
+                <p>
+                    Piedras y accesorios
+                </p>
+
+            </button>
+
+
+            <button class="category-card">
+
+                <div class="category-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Pintura
+                </h3>
+
+                <p>
+                    Pinturas y herramientas
+                </p>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CATÁLOGO
+    =========================================== -->
+
+    <section id="catalogo"
+             class="artisan-catalog">
+
+        <div class="artisan-section-header">
+
+            <div>
+
+                <span>
+                    PARA TI
+                </span>
+
+                <h2>
+                    Catálogo de productos
+                </h2>
+
+            </div>
+
+            <button class="filter-button">
+                ☰ Filtrar
+            </button>
+
+        </div>
+
+
+
+        <div class="products-grid">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="product-placeholder">
+                        🧶
+                    </div>
+
+                    <button class="favorite-button">
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        TEXTILES
+                    </span>
+
+                    <h3>
+                        Hilo artesanal
+                    </h3>
+
+                    <p>
+                        Hilo de algodón para tejidos.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            C$ 120
+                        </strong>
+
+                        <button class="add-cart"
+                                onclick="addToCart('Hilo artesanal')">
+
+                            🛒
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCTO 2 -->
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="product-placeholder">
+                        🪵
+                    </div>
+
+                    <button class="favorite-button">
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        MADERA
+                    </span>
+
+                    <h3>
+                        Madera artesanal
+                    </h3>
+
+                    <p>
+                        Madera seleccionada para manualidades.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            C$ 350
+                        </strong>
+
+                        <button class="add-cart"
+                                onclick="addToCart('Madera artesanal')">
+
+                            🛒
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCTO 3 -->
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="product-placeholder">
+                        🏺
+                    </div>
+
+                    <button class="favorite-button">
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        CERÁMICA
+                    </span>
+
+                    <h3>
+                        Arcilla natural
+                    </h3>
+
+                    <p>
+                        Arcilla para piezas artesanales.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            C$ 180
+                        </strong>
+
+                        <button class="add-cart"
+                                onclick="addToCart('Arcilla natural')">
+
+                            🛒
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCTO 4 -->
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="product-placeholder">
+                        💎
+                    </div>
+
+                    <button class="favorite-button">
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        BISUTERÍA
+                    </span>
+
+                    <h3>
+                        Piedras decorativas
+                    </h3>
+
+                    <p>
+                        Piedras para diseños artesanales.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            C$ 250
+                        </strong>
+
+                        <button class="add-cart"
+                                onclick="addToCart('Piedras decorativas')">
+
+                            🛒
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         PIE
+    =========================================== -->
+
+    <footer class="artisan-footer">
+
+        <img src="~/images/logo.jpg"
+             alt="Entre Manos">
+
+        <p>
+            Hecho a mano. Hecho con amor.
+        </p>
+
+    </footer>
+
+</div>
+
+
+
+<script>
+
+    let cartCount = 0;
+
+
+    function addToCart(product) {
+
+        cartCount++;
+
+        document.getElementById("cartCount").textContent =
+            cartCount;
+
+        alert(
+            product + " fue agregado al carrito."
+        );
+    }
+
+
+    // BUSCADOR
+
+    document
+        .getElementById("searchProducts")
+        .addEventListener("keyup", function() {
+
+            let search =
+                this.value.toLowerCase();
+
+            let products =
+                document.querySelectorAll(".product-card");
+
+
+            products.forEach(function(product) {
+
+                let text =
+                    product.textContent.toLowerCase();
+
+                if (text.includes(search)) {
+
+                    product.style.display = "";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+</script>

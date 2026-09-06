@@ -1,0 +1,72 @@
+﻿@model List<entre_manos_offi.Models.Producto>
+
+<h2>Mis Productos</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Categoría</th>
+        <th>Estado</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>C$ @item.Precio</td>
+            <td>@item.Categoria</td>
+            <td>@item.Estado</td>
+        </tr>
+    }
+
+</table>
+
+<div class="page-header">
+    <h1>Mis Productos</h1>
+</div>
+
+<table class="tabla-productos">
+
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+
+            <td>
+                <img src="/images/demo.jpg"
+                     width="60">
+            </td>
+
+            <td>Hilo Artesanal</td>
+
+            <td>C$150</td>
+
+            <td>25</td>
+
+            <td>Publicado</td>
+
+            <td>
+
+                <a href="#">Editar</a>
+
+                <a href="#">Eliminar</a>
+
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>

@@ -1,0 +1,2182 @@
+/* =========================================
+   ENTRE MANOS
+   ESTILOS PRINCIPALES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fdf9f5;
+    color: #3d2448;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --morado: #51145f;
+    --morado-oscuro: #3d1049;
+    --morado-claro: #7a3b86;
+    --naranja: #f15a24;
+    --naranja-claro: #ff7a3d;
+    --crema: #fdf9f5;
+    --crema-oscuro: #f4ebe3;
+    --texto: #3c3540;
+    --blanco: #ffffff;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #eee4df;
+    backdrop-filter: blur(10px);
+}
+
+
+.navbar-container {
+    width: 94%;
+    max-width: 1400px;
+    min-height: 74px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* LOGO */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+.logo {
+    width: 90px;
+    height: 100px;
+    display: block;
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+.menu-link {
+    position: relative;
+    color: #4a414b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 27px 0;
+    transition: 0.3s;
+}
+
+
+    .menu-link:hover {
+        color: var(--morado);
+    }
+
+
+    .menu-link.active {
+        color: var(--morado);
+    }
+
+
+        .menu-link.active::after {
+            content: "";
+            position: absolute;
+            bottom: 17px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--morado);
+        }
+
+
+/* =========================================
+   BUSCADOR
+========================================= */
+
+.search-box {
+    margin-left: auto;
+    width: 300px;
+    height: 42px;
+    border: 1px solid #ddd4d0;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    background: #fff;
+}
+
+
+    .search-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 0 10px;
+        background: transparent;
+        font-size: 13px;
+    }
+
+
+.search-icon {
+    font-size: 20px;
+    color: #756d75;
+}
+
+
+.search-config {
+    color: #756d75;
+}
+
+
+/* =========================================
+   BOTÓN LOGIN
+========================================= */
+
+.login-button {
+    text-decoration: none;
+    background: var(--morado);
+    color: white;
+    padding: 12px 19px;
+    border-radius: 22px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+
+    .login-button:hover {
+        background: var(--morado-oscuro);
+        transform: translateY(-1px);
+    }
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 610px;
+    padding: 65px 5%;
+    background: radial-gradient( circle at 75% 50%, rgba(241, 90, 36, 0.08), transparent 30% ), #fdf9f5;
+}
+
+
+.hero-container {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+
+/* HERO TEXTO */
+
+.hero-small-title {
+    color: var(--naranja);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+
+.hero-content h1 {
+    color: var(--morado);
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 5vw, 67px);
+    line-height: 1.03;
+    margin: 15px 0 25px;
+}
+
+
+    .hero-content h1 span {
+        color: var(--naranja);
+    }
+
+
+.hero-description {
+    color: #5d555c;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 560px;
+}
+
+
+/* BOTONES */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    background: var(--morado);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+
+    .btn-primary:hover {
+        background: var(--naranja);
+        transform: translateY(-2px);
+    }
+
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--morado);
+    border: 1px solid var(--morado);
+    padding: 13px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+
+    .btn-secondary:hover {
+        background: var(--morado);
+        color: white;
+    }
+
+
+/* =========================================
+   HERO IMAGEN
+========================================= */
+
+.hero-image-container {
+    position: relative;
+    height: 440px;
+}
+
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    display: block;
+    box-shadow: 0 25px 50px rgba(81, 20, 95, 0.13);
+}
+
+
+.hero-decoration {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--naranja);
+    border-radius: 50%;
+    right: -25px;
+    top: -25px;
+    opacity: .4;
+}
+
+
+.hero-badge {
+    position: absolute;
+    left: -35px;
+    bottom: 30px;
+    background: white;
+    padding: 16px 22px;
+    border-radius: 15px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.1);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+
+    .hero-badge span {
+        color: var(--naranja);
+        font-size: 25px;
+    }
+
+
+    .hero-badge strong {
+        display: block;
+        color: var(--morado);
+    }
+
+
+    .hero-badge small {
+        color: #777;
+    }
+
+
+/* =========================================
+   TITULOS DE SECCIÓN
+========================================= */
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+
+    .section-title span {
+        color: var(--naranja);
+        font-size: 12px;
+        letter-spacing: 3px;
+        font-weight: 700;
+    }
+
+
+    .section-title h2 {
+        font-family: Georgia, serif;
+        color: var(--morado);
+        font-size: 43px;
+        margin: 10px 0;
+    }
+
+
+    .section-title p {
+        color: #6b6269;
+        line-height: 1.6;
+    }
+
+
+/* =========================================
+   QUIENES SOMOS
+========================================= */
+
+.about-section {
+    padding: 100px 5%;
+    background: white;
+}
+
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.about-card {
+    padding: 35px;
+    border: 1px solid #eee4df;
+    border-radius: 22px;
+    background: #fff;
+    transition: .3s;
+}
+
+
+    .about-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(81, 20, 95, .09);
+    }
+
+
+    .about-card.featured {
+        background: #fbf4f8;
+        border-color: #ead6e9;
+    }
+
+
+.about-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f9ebe4;
+    color: var(--naranja);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+.about-card h3 {
+    color: var(--morado);
+    font-family: Georgia, serif;
+    font-size: 23px;
+    margin-bottom: 13px;
+}
+
+
+.about-card p {
+    color: #6b6269;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   PROPÓSITO
+========================================= */
+
+.purpose-section {
+    padding: 100px 5%;
+    background: var(--crema-oscuro);
+}
+
+
+.purpose-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+
+.purpose-text > span {
+    color: var(--naranja);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.purpose-text h2 {
+    font-family: Georgia, serif;
+    color: var(--morado);
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 15px 0 20px;
+}
+
+
+.purpose-text p {
+    color: #625960;
+    line-height: 1.8;
+    max-width: 550px;
+    margin-bottom: 28px;
+}
+
+
+.purpose-quote {
+    background: var(--morado);
+    color: white;
+    border-radius: 30px;
+    padding: 65px;
+    text-align: center;
+    box-shadow: 15px 20px 0 rgba(241, 90, 36, .2);
+}
+
+
+.quote-mark {
+    color: var(--naranja);
+    font-family: Georgia, serif;
+    font-size: 80px;
+    height: 60px;
+}
+
+
+.purpose-quote p {
+    font-family: Georgia, serif;
+    font-size: 31px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   CATALOGO
+========================================= */
+
+.catalog-section {
+    padding: 100px 5%;
+    background: white;
+}
+
+
+.catalog-message {
+    max-width: 600px;
+    margin: auto;
+    padding: 55px;
+    text-align: center;
+    border: 1px dashed #d8c9d8;
+    border-radius: 25px;
+    background: #fdf9f5;
+}
+
+
+.catalog-icon {
+    font-size: 35px;
+    color: var(--naranja);
+    margin-bottom: 15px;
+}
+
+
+.catalog-message h3 {
+    color: var(--morado);
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+
+.catalog-message p {
+    color: #716870;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    background: var(--morado-oscuro);
+    color: white;
+    padding: 45px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+    .footer strong {
+        font-family: Georgia, serif;
+        font-size: 25px;
+    }
+
+
+    .footer p {
+        opacity: .75;
+        margin-top: 8px;
+    }
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar-container {
+        flex-wrap: wrap;
+        padding: 15px 0;
+    }
+
+
+    .search-box {
+        order: 4;
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero-image-container {
+        height: 400px;
+    }
+
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .purpose-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .menu {
+        gap: 12px;
+    }
+
+
+    .menu-link {
+        font-size: 12px;
+    }
+
+
+    .login-button {
+        padding: 10px 13px;
+    }
+
+
+    .hero {
+        padding: 45px 20px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+
+    .hero-image-container {
+        height: 300px;
+    }
+
+
+    .hero-badge {
+        left: 10px;
+    }
+
+
+    .about-section,
+    .purpose-section,
+    .catalog-section {
+        padding: 70px 20px;
+    }
+
+
+    .purpose-text h2 {
+        font-size: 38px;
+    }
+
+
+    .footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+/* =========================================
+   AUTENTICACIÓN
+========================================= */
+
+.auth-page {
+
+    min-height: calc(100vh - 74px);
+
+    padding: 55px 5%;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 30%,
+            rgba(81, 20, 95, .08),
+            transparent 30%
+        ),
+
+        #fdf9f5;
+
+}
+
+
+.auth-container {
+
+    max-width: 1200px;
+
+    min-height: 650px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: white;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(81, 20, 95, .12);
+
+}
+
+
+/* =========================================
+   LADO DE MARCA
+========================================= */
+
+.auth-brand {
+
+    position: relative;
+
+    padding: 70px 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            rgba(253,249,245,.91),
+            rgba(253,249,245,.95)
+        ),
+
+        url("../images/hero-artesanos.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.auth-logo {
+
+    width: 210px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.auth-brand h1 {
+
+    font-family: Georgia, serif;
+
+    color: var(--morado);
+
+    font-size: 44px;
+
+    line-height: 1.1;
+
+    margin-bottom: 22px;
+
+}
+
+
+.auth-brand h1 span {
+
+    color: var(--naranja);
+
+}
+
+
+.auth-brand p {
+
+    max-width: 430px;
+
+    color: #5d555c;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.auth-brand strong {
+
+    color: var(--morado);
+
+}
+
+
+.auth-decoration {
+
+    color: var(--naranja);
+
+    font-size: 35px;
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================
+   TARJETA LOGIN
+========================================= */
+
+.auth-card {
+
+    padding: 45px 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+/* TABS */
+
+.auth-tabs {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-bottom: 1px solid #e3deda;
+
+    margin-bottom: 35px;
+
+}
+
+
+.auth-tab {
+
+    border: none;
+
+    background: transparent;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    color: #6a6268;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+
+.auth-tab.active {
+
+    color: var(--morado);
+
+    border-bottom: 3px solid var(--morado);
+
+}
+
+
+/* TITULO */
+
+.auth-title h2 {
+
+    font-family: Georgia, serif;
+
+    color: var(--morado);
+
+    font-size: 29px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.auth-title p {
+
+    color: #777;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* =========================================
+   FORMULARIOS
+========================================= */
+
+.form-group {
+
+    margin-bottom: 20px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #443d44;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+}
+
+
+.input-container {
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #ddd5d1;
+
+    border-radius: 9px;
+
+    background: white;
+
+    transition: .2s;
+
+}
+
+
+.input-container:focus-within {
+
+    border-color: var(--morado);
+
+    box-shadow:
+        0 0 0 3px rgba(81,20,95,.08);
+
+}
+
+
+.input-icon {
+
+    padding-left: 14px;
+
+    color: #777;
+
+}
+
+
+.input-container input,
+.input-container select {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 12px;
+
+    color: #443d44;
+
+    font-size: 14px;
+
+}
+
+
+.input-container select {
+
+    cursor: pointer;
+
+}
+
+
+.password-toggle {
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 10px;
+
+    color: #777;
+
+}
+
+
+/* =========================================
+   FORGOT / REMEMBER
+========================================= */
+
+.label-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.forgot-password {
+
+    color: var(--morado);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+}
+
+
+.forgot-password:hover {
+
+    color: var(--naranja);
+
+}
+
+
+.remember-row {
+
+    margin: 5px 0 22px;
+
+}
+
+
+.remember {
+
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-weight: normal !important;
+
+}
+
+
+.remember input {
+
+    accent-color: var(--morado);
+
+}
+
+
+/* =========================================
+   BOTON LOGIN
+========================================= */
+
+.auth-submit {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--naranja);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    transition: .3s;
+
+}
+
+
+.auth-submit:hover {
+
+    background: var(--morado);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.social-section {
+
+    margin-top: 25px;
+
+}
+
+
+.social-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.social-divider span {
+
+    height: 1px;
+
+    background: #e4dedb;
+
+    flex: 1;
+
+}
+
+
+.social-divider p {
+
+    font-size: 11px;
+
+    color: #888;
+
+    white-space: nowrap;
+
+}
+
+
+.social-buttons {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+}
+
+
+.social-button {
+
+    height: 45px;
+
+    border: 1px solid #ddd7d3;
+
+    background: white;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: .2s;
+
+}
+
+
+.social-button:hover {
+
+    border-color: var(--morado);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+
+}
+
+
+.google-icon {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+.facebook-icon {
+
+    width: 20px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #1877f2;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+}
+
+
+.social-info {
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #999;
+
+    margin-top: 12px;
+
+}
+
+
+/* =========================================
+   REGISTRO
+========================================= */
+
+.register-container {
+
+    max-width: 850px;
+
+    margin: auto;
+
+}
+
+
+.register-header {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.register-logo {
+
+    width: 155px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.register-header h1 {
+
+    font-family: Georgia, serif;
+
+    color: var(--morado);
+
+    font-size: 40px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.register-header p {
+
+    color: #716970;
+
+}
+
+
+.register-card {
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 40px 50px;
+
+    box-shadow:
+        0 20px 55px rgba(81,20,95,.1);
+
+}
+
+
+.register-tab-title {
+
+    text-align: center;
+
+    color: var(--morado);
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   TIPOS DE USUARIO
+========================================= */
+
+.user-type-container {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.user-type {
+
+    cursor: pointer;
+
+}
+
+
+.user-type input {
+
+    display: none;
+
+}
+
+
+.user-type-content {
+
+    border: 2px solid #e6dedb;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    transition: .2s;
+
+}
+
+
+.user-type input:checked + .user-type-content {
+
+    border-color: var(--morado);
+
+    background: #faf4fa;
+
+    box-shadow:
+        0 5px 20px rgba(81,20,95,.08);
+
+}
+
+
+.user-type-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    min-width: 52px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fbe8df;
+
+    color: var(--naranja);
+
+    font-size: 23px;
+
+}
+
+
+.user-type-icon.provider {
+
+    background: #eee3f0;
+
+    color: var(--morado);
+
+}
+
+
+.user-type h3 {
+
+    color: var(--morado);
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.user-type p {
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+   TERMINOS
+========================================= */
+
+.terms {
+
+    display: flex;
+
+    gap: 9px;
+
+    align-items: flex-start;
+
+    font-size: 12px;
+
+    color: #777;
+
+    margin: 10px 0 20px;
+
+}
+
+
+.terms input {
+
+    margin-top: 2px;
+
+    accent-color: var(--morado);
+
+}
+
+
+.terms a {
+
+    color: var(--morado);
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================
+   MENSAJES
+========================================= */
+
+.error-message {
+
+    background: #fff0ed;
+
+    color: #c33f1b;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+
+}
+
+
+.success-message {
+
+    background: #eef8ef;
+
+    color: #34733a;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   REGISTRO / LOGIN
+========================================= */
+
+.register-question {
+
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+.register-question a {
+
+    color: var(--naranja);
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+
+.register-question a:hover {
+
+    color: var(--morado);
+
+}
+
+
+/* =========================================
+   RESPONSIVE AUTH
+========================================= */
+
+@media (max-width: 850px) {
+
+    .auth-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .auth-brand {
+
+        padding: 45px 35px;
+
+        text-align: center;
+
+        align-items: center;
+
+        min-height: 400px;
+
+    }
+
+
+    .auth-card {
+
+        padding: 40px 30px;
+
+    }
+
+
+    .user-type-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .auth-page {
+
+        padding: 20px 12px;
+
+    }
+
+
+    .auth-brand h1 {
+
+        font-size: 35px;
+
+    }
+
+
+    .auth-card {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .social-buttons {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .register-card {
+
+        padding: 30px 20px;
+
+    }
+
+}
+
+/* ==================================================
+   PÁGINA DEL ARTESANO
+================================================== */
+
+.artisan-page {
+    min-height: 100vh;
+    background: #fdf9f5;
+}
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.artisan-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #eee4df;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+.artisan-navbar-container {
+    width: 94%;
+    max-width: 1350px;
+    min-height: 78px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+
+/* LOGO */
+
+.artisan-logo {
+    display: flex;
+    align-items: center;
+}
+
+
+    .artisan-logo img {
+        width: 135px;
+        height: auto;
+        display: block;
+    }
+
+
+/* BUSCADOR */
+
+.artisan-search {
+    flex: 1;
+    max-width: 600px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ded6d2;
+    border-radius: 25px;
+    background: #fafafa;
+    padding: 0 18px;
+}
+
+
+    .artisan-search:focus-within {
+        border-color: #51145f;
+        box-shadow: 0 0 0 3px rgba(81,20,95,.07);
+    }
+
+
+    .artisan-search input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+
+
+.search-icon {
+    color: #6d646b;
+}
+
+
+/* ==================================================
+   ACCIONES
+================================================== */
+
+.artisan-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.artisan-action {
+    position: relative;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f1f8;
+    text-decoration: none;
+    transition: .25s;
+}
+
+
+    .artisan-action:hover {
+        background: #51145f;
+        transform: translateY(-2px);
+    }
+
+
+        .artisan-action:hover span {
+            filter: grayscale(1) brightness(5);
+        }
+
+
+.cart-action small {
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    width: 19px;
+    height: 19px;
+    background: #f15a24;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   BIENVENIDA
+================================================== */
+
+.artisan-welcome {
+    max-width: 1250px;
+    margin: 40px auto;
+    padding: 45px 55px;
+    border-radius: 25px;
+    background: radial-gradient( circle at 90% 20%, rgba(241,90,36,.12), transparent 30% ), #f4ebe3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.artisan-subtitle {
+    color: #f15a24;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+
+.artisan-welcome h1 {
+    color: #51145f;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+
+.artisan-welcome p {
+    color: #625960;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+
+.welcome-decoration {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #f15a24;
+    font-size: 45px;
+}
+
+
+    .welcome-decoration span:nth-child(2) {
+        font-size: 80px;
+    }
+
+
+/* ==================================================
+   SECCIONES
+================================================== */
+
+.artisan-categories,
+.artisan-catalog {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 30px 0 70px;
+}
+
+
+.artisan-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+
+    .artisan-section-header span {
+        color: #f15a24;
+        font-size: 11px;
+        letter-spacing: 3px;
+        font-weight: bold;
+    }
+
+
+    .artisan-section-header h2 {
+        color: #51145f;
+        font-family: Georgia, serif;
+        font-size: 32px;
+        margin-top: 5px;
+    }
+
+
+    .artisan-section-header > a {
+        color: #51145f;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+
+/* ==================================================
+   CATEGORÍAS
+================================================== */
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+
+.category-card {
+    border: 1px solid #e8dfdb;
+    background: white;
+    border-radius: 18px;
+    padding: 25px 15px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+
+    .category-card:hover {
+        border-color: #51145f;
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(81,20,95,.08);
+    }
+
+
+.category-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #f9e9e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 25px;
+}
+
+
+.category-card h3 {
+    color: #51145f;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+
+.category-card p {
+    color: #777;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+
+/* ==================================================
+   PRODUCTOS
+================================================== */
+
+.artisan-catalog {
+    padding-top: 20px;
+}
+
+
+.filter-button {
+    border: 1px solid #51145f;
+    background: white;
+    color: #51145f;
+    border-radius: 20px;
+    padding: 9px 17px;
+    cursor: pointer;
+}
+
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+.product-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee4df;
+    transition: .25s;
+}
+
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(81,20,95,.1);
+    }
+
+
+.product-image {
+    height: 220px;
+    position: relative;
+    background: #f5ece7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.product-placeholder {
+    font-size: 70px;
+}
+
+
+.favorite-button {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: #51145f;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+
+.product-info {
+    padding: 20px;
+}
+
+
+.product-category {
+    color: #f15a24;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+
+.product-info h3 {
+    color: #51145f;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+
+.product-info p {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.5;
+    min-height: 38px;
+}
+
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+
+    .product-bottom strong {
+        color: #51145f;
+        font-size: 19px;
+    }
+
+
+.add-cart {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #f15a24;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+}
+
+
+    .add-cart:hover {
+        background: #51145f;
+        transform: scale(1.05);
+    }
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.artisan-footer {
+    background: #3d1049;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+
+    .artisan-footer img {
+        width: 130px;
+        background: white;
+        padding: 5px;
+        border-radius: 8px;
+    }
+
+
+    .artisan-footer p {
+        margin-top: 12px;
+        opacity: .8;
+    }
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width: 1100px) {
+
+    .artisan-welcome,
+    .artisan-categories,
+    .artisan-catalog {
+        width: 90%;
+    }
+
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media(max-width: 700px) {
+
+    .artisan-navbar-container {
+        flex-wrap: wrap;
+        padding: 15px 0;
+    }
+
+
+    .artisan-search {
+        order: 3;
+        width: 100%;
+        max-width: none;
+    }
+
+
+    .artisan-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 35px 25px;
+    }
+
+
+    .welcome-decoration {
+        display: none;
+    }
+
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }   
+
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

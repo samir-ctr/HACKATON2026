@@ -1,0 +1,163 @@
+﻿:root {
+    --primary: #4B146D;
+    --secondary: #F36B21;
+    --background: #F8F4F1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: var(--background);
+}
+
+.proveedor-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+.sidebar {
+    width: 280px;
+    background: var(--primary);
+    color: white;
+    padding: 25px;
+}
+
+.logo-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .logo-box img {
+        width: 90px;
+        margin-bottom: 10px;
+    }
+
+    .logo-box h2 {
+        font-size: 22px;
+    }
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    .sidebar nav a {
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+        border-radius: 12px;
+        transition: .3s;
+    }
+
+        .sidebar nav a:hover {
+            background: var(--secondary);
+        }
+
+/* CONTENIDO */
+.content {
+    flex: 1;
+    padding: 40px;
+    background: var(--background);
+}
+
+/* TARJETA BIENVENIDA */
+.welcome-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+    .welcome-card h1 {
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+
+/* ESTADISTICAS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+    .card h2 {
+        color: var(--primary);
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+    .page-header h1 {
+        color: #4B146D;
+    }
+
+.producto-form {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+.btn-primary {
+    background: #F36B21;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+<div class="acciones" >
+
+<button class="btn-primary" >
+Guardar Cambios
+</button >
+
+<button class="btn-danger" >
+Eliminar Producto
+</button >
+
+</div >
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
